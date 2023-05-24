@@ -4,11 +4,8 @@ import unreal
 # References
 AssetMatTools = unreal.AssetToolsHelpers.get_asset_tools()
 MaterialEditingLibrary = unreal.MaterialEditingLibrary
-EditorAssetLibrary = unreal.EditorAssetLibrary
-editor_util = unreal.EditorUtilityLibrary
 content_browser = unreal.EditorUtilityLibrary.get_current_content_browser_path()
-asset_registry = unreal.AssetRegistryHelpers.get_asset_registry()
-selected_assets = asset_registry.get_assets_by_path(content_browser)
+selected_assets = unreal.AssetRegistryHelpers.get_asset_registry().get_assets_by_path(content_browser)
 
 
 # Texture Handlers
@@ -46,13 +43,14 @@ handlers = {
     'Normal': handle_normal
 }
 
-
 # Create Dictionary [Material] = [Array of Textures]
 materials = {}
-#for asset in selected_assets:
 for asset in selected_assets:
     asset = asset.get_asset()
-    # Get name
+    if (asset.get_class().get_name() != "Texture2D"):
+        print("This is not a texture!")
+        continue
+
     texture_name = asset.get_name()
     # Clean up name
     if texture_name.startswith("T_"):
@@ -65,7 +63,6 @@ for asset in selected_assets:
         materials[texture_name].append(asset.get_name())
     else:
         materials[texture_name] = [asset.get_name()]
-
 
 # Assemble Materials from dictionary
 for material_name, textures in materials.items():
