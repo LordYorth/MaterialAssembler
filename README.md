@@ -21,7 +21,7 @@ This is the output setup I use in Substance Painter. <br />
 1. Make sure the **Editor scripting Utilities** plugin is enabled.
 2. Create an **Editor Utilty** blueprint and pick **Asset Action Utility** as parent class.
 3. Create a **Custom Event** node and make sure **Call in Editor** is enabled in the node's details.
-4. Link an **Execute Python Script** to the custom event and insert the MaterialAssembly.py script (Copy and Paste the script inside the file).
+4. Link an **Execute Python Script** node to the custom event and insert the MaterialAssembly.py script (Copy and Paste the script inside the file).
 5. Compile and Save
  <br />
   <br />
