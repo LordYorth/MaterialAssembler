@@ -1,9 +1,9 @@
 # MaterialAssembler
 
 This is a small python script to assemble materials in **Unreal Engine 5** current Content Browser with a texture set like this: 
-- MaterialName_BaseColor 
-- MaterialName_OcclusionRoughnessMetallic
-- Materialname_Normal
+- **MaterialName_BaseColor**
+- **MaterialName_OcclusionRoughnessMetallic**
+- **Materialname_Normal**
 <br />
 This is for a specific case, where the script helps to accelerate assembling Materials. <br />
 Feel free to use or modify it for your personal use! <br />
